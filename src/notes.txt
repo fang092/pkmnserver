@@ -1,0 +1,57 @@
+
+  const [pokemon, setPokemon] = useState([])
+  
+  //1st param is the item that will be return, 2nd is the method to update state (list)
+  const[currentPageUrl, setCurrentPageUrl] = useState("https://pokeapi.co/api/v2/pokemon/")
+  //sets the currentpage to the first page of pokemon
+  const[nextPageUrl, setNextPageUrl] = useState()
+  //sets the next page 
+  const[prevPageUrl, setPrevPageUrl] = useState()
+  //sets the prev page 
+  const[loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    //use effect is a hook that runs based on the props or if the array changes, it only renders once(caching)
+    setLoading(true) // we need to make a request
+    let cancel
+    axios.get(currentPageUrl, {
+      cancelToken: new axios.CancelToken(c => cancel = c)
+    }).then(response => {
+      setLoading(false) // true if the page is loaded, by default the page is always loading - false
+      setNextPageUrl(response.data.next) //sets next page
+      setPrevPageUrl(response.data.previous) //sets prev page
+     
+      setPokemon(response.data.results.map(p => p.results))
+     
+  
+      //calls fetch on the api url, calls then on the promise (what is gotten from the call)
+      // then chucks the results of the api call into an array via .map
+      // then parses through it grabbing the pokemon names
+      //then sets the const setPokemon to the results which should be the pokemon names
+
+    })
+    return () => cancel() //if multiple calls are made, it cancels a old request each time a new one is made
+    
+  },[currentPageUrl])
+  //reruns based on if the  urrent page is changed
+
+  if(loading) return <div className='bg-richblack w-screen h-screen text-white'>Loading...</div>
+
+  function gotoNextPage(){
+    setCurrentPageUrl(nextPageUrl)
+  }
+  function gotoPrevPage(){
+    setCurrentPageUrl(prevPageUrl)
+  }
+  
+  return (
+
+
+    <div className="flex flex-col items-center justify-center w-screen h-screen bg-richblack text-white  ">
+      <PokemonList pokemon={pokemon}  />
+      <Pagination
+        gotoNextPage={nextPageUrl ?  gotoNextPage : null }
+        gotoPrevPage={prevPageUrl ?  gotoPrevPage : null}  />
+    </div>
+
+  );
