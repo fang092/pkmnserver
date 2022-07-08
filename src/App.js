@@ -13,7 +13,7 @@ class App extends Component{
 
     return (  
       <Router>
-          <div className="w-full h-full bg-platnium">
+          <div className="w-screen h-screen bg-platnium">
             <Navbar/>
           
               <Switch>

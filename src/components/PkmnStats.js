@@ -93,30 +93,32 @@ export default class PkmnStats extends Component {
 
     render(){
         return (
-            <div className='bg-platnium w-3/5 h-screen  p-6 flex flex-row  md:w-3/5 bg-red-500'>
-                <div className='flex flex-col bg-purple-500 items-center'>
-                    <p className='text-4xl md:text-6xl'>{this.state.name.toLowerCase().split(' ').map(letter => letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ')}</p>
-                    <img className=" w-32 h-32 md:w-64 md:h-64 " src={this.state.imageUrl} alt={this.state.name} />
-                    <div className='flex flex-row '>
-                        <div>{this.state.types[0].toString().toLowerCase().split(' ').map(letter => letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ')}</div>
-                        <div>{this.state.types[1] ? this.state.types[1].toString().toLowerCase().split(' ').map(letter => letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ') :null}</div>
+            <div className='mx-auto w-3/5 h-auto p-6  md:w-3/5'>
+                <div className='flex flex-col items-center justify-center md:flex-col lg:flex-row'>
+                        <div className='flex flex-col items-center '>
+                            <p className='text-5xl md:text-6xl'>{this.state.name.toLowerCase().split(' ').map(letter => letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ')}</p>
+                            <img className=" w-32 h-32 md:w-64 md:h-64 " src={this.state.imageUrl} alt={this.state.name} />
+                            <div className='flex flex-row '>
+                                <div>{this.state.types[0].toString().toLowerCase().split(' ').map(letter => letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ')}</div>
+                                <div>{this.state.types[1] ? this.state.types[1].toString().toLowerCase().split(' ').map(letter => letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ') :null}</div>
+                            </div>
+                            <p>Height: {this.state.height} ft.</p>
+                            <p>Weight: {this.state.weight} lbs.</p>
+                        </div>
+                        <div className='flex flex-col items-center '>
+                            <p className='text-center my-5'>{this.state.description} </p>
+                            
+                            <p>Abilities: {this.state.abilities.toString().toLowerCase().split(',').map(letter => letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ')}</p>
+                            <div className='flex flex-col items-center mt-4 '>
+                                    <p> HP: {this.state.stats.hp}</p>
+                                    <p> Attack: {this.state.stats.attack}</p>
+                                    <p>Defense: {this.state.stats.defense}</p>
+                                    <p>Speed: {this.state.stats.speed}</p>
+                                    <p>Spec.Attack: {this.state.stats.specialAttack}</p>
+                                    <p>Spec.Defense: {this.state.stats.specialDefense}</p>
+                            </div>
                     </div>
-                    <p>Height: {this.state.height} ft.</p>
-                    <p>Weight: {this.state.weight} lbs.</p>
                 </div>
-                <div className='flex flex-col bg-yellow-500 items-center '>
-                    <p className='text-center my-5'>{this.state.description} </p>
-                    
-                    <p>Abilities: {this.state.abilities.toString().toLowerCase().split(',').map(letter => letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ')}</p>
-                    <div className='flex flex-col items-center mt-4 '>
-                            <p> HP: {this.state.stats.hp}</p>
-                            <p> Attack: {this.state.stats.attack}</p>
-                            <p>Defense: {this.state.stats.defense}</p>
-                            <p>Speed: {this.state.stats.speed}</p>
-                            <p>Spec.Attack: {this.state.stats.specialAttack}</p>
-                            <p>Spec.Defense: {this.state.stats.specialDefense}</p>
-                    </div>
-               </div>
             </div>
         )
     }
