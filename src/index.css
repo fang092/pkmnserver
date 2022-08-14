@@ -26,6 +26,7 @@
   h5{
     @apply text-lg;
   }
+  
 
 body {
   margin: 0;
@@ -33,4 +34,5 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 }

@@ -8,9 +8,9 @@ export default function Navbar() {
   return (
     <div className='w-full h-12  bg-rosemadder flex flex-row justify-between items-center p-6 mb-7'>
       <h4>
-        <Link className='text-platnium flex flex-row justify-center items-center' to="/"><img src={logo} className="w-10 h-10" alt="logo"/>PokeCodex</Link> 
+        <Link className='text-platnium flex flex-row  items-center' to="/"><img src={logo} className="w-10 h-10" alt="logo"/>PokeCodex</Link> 
       </h4>
-      <a className='text-platnium flex flex-row justify-center items-center' href='https://bradgrad.design/#projects'><img src={leftarrow} alt="Left Arrow" /><img src={bglogo} className="w-10 h-10" alt="logo"/> </a> 
+      <a className='text-platnium flex flex-row  items-center' href='https://bradgrad.design/#projects'><img src={leftarrow} alt="Left Arrow" /><img src={bglogo} className="w-10 h-10" alt="logo"/> </a> 
     </div>
   )
 }

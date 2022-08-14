@@ -3,11 +3,12 @@ import PkmnCard from './PkmnCard'
 import Pagination from './Pagination';
 import axios from 'axios'
 import loading from './loading.gif'
+import SearchBar from './SearchBar';
 
 
 
 
-function PkmnList () {
+const PkmnList =  () => {
 
   const[isLoading, setIsLoading] = React.useState(true);
   const[currentPageUrl, setCurrentPageUrl] = React.useState("https://pokeapi.co/api/v2/pokemon/");
@@ -15,6 +16,8 @@ function PkmnList () {
   const[prevPageUrl, setPrevPageUrl] = React.useState();
 
   const [pokemon, setPokemon]= React.useState([]);
+
+  
 
   React.useEffect(() => {
     setIsLoading(true)
@@ -45,11 +48,14 @@ function PkmnList () {
   }
   
     return (
-      <>
-          <Pagination 
-            gotoNextPage={nextPageUrl ? gotoNextPage : null }
-            gotoPrevPage={prevPageUrl ? gotoPrevPage : null } />
-          {pokemon ? ( <div className=" grid grid-cols-1 gap-4 p-6 bg-platnium sm:grid-cols-2 md:grid-cols-4 ">
+      <>  
+          <div className='flex flex-row w-full items-center justify-between p-6'>
+            <Pagination 
+              gotoNextPage={nextPageUrl ? gotoNextPage : null }
+              gotoPrevPage={prevPageUrl ? gotoPrevPage : null } />
+            <SearchBar pokemon={pokemon} setSearchResults={setPokemon}/>
+          </div>
+          {pokemon ? ( <div className="w-9/12 mx-auto grid grid-cols-1 gap-4 p-6 bg-platnium sm:grid-cols-2 md:grid-cols-4 ">
           {
             pokemon.map(pokemon => 
               (<PkmnCard

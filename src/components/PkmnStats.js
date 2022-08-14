@@ -93,7 +93,7 @@ export default class PkmnStats extends Component {
 
     render(){
         return (
-            <div className='mx-auto w-3/5 h-auto p-6  md:w-3/5'>
+            <div className='mx-auto w-fit h-screen p-6  md:w-3/5'>
                 <div className='flex flex-col items-center justify-center md:flex-col lg:flex-row'>
                         <div className='flex flex-col items-center '>
                             <p className='text-5xl md:text-6xl'>{this.state.name.toLowerCase().split(' ').map(letter => letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ')}</p>

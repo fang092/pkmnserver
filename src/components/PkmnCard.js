@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react'
 import loading from './loading.gif'
 import {Link} from 'react-router-dom'
@@ -53,4 +52,3 @@ export default class PkmnCard extends Component {
   }
   
 }
-
