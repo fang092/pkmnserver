@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {useState, useEffect} from 'react';
 import PkmnCard from './PkmnCard'
 import Pagination from './Pagination';
 import axios from 'axios'
@@ -10,16 +10,16 @@ import SearchBar from './SearchBar';
 
 const PkmnList =  () => {
 
-  const[isLoading, setIsLoading] = React.useState(true);
-  const[currentPageUrl, setCurrentPageUrl] = React.useState("https://pokeapi.co/api/v2/pokemon/");
-  const[nextPageUrl, setNextPageUrl] = React.useState();
-  const[prevPageUrl, setPrevPageUrl] = React.useState();
+  const[isLoading, setIsLoading] = useState(true);
+  const[currentPageUrl, setCurrentPageUrl] = useState("https://pokeapi.co/api/v2/pokemon/");
+  const[nextPageUrl, setNextPageUrl] = useState();
+  const[prevPageUrl, setPrevPageUrl] = useState();
 
-  const [pokemon, setPokemon]= React.useState([]);
+  const [pokemon, setPokemon]= useState([]);
 
   
 
-  React.useEffect(() => {
+  useEffect(() => {
     setIsLoading(true)
     
   
@@ -55,7 +55,7 @@ const PkmnList =  () => {
               gotoPrevPage={prevPageUrl ? gotoPrevPage : null } />
             <SearchBar pokemon={pokemon} setSearchResults={setPokemon}/>
           </div>
-          {pokemon ? ( <div className="w-9/12 mx-auto grid grid-cols-1 gap-4 p-6 bg-platnium sm:grid-cols-2 md:grid-cols-4 ">
+          {pokemon ? ( <div className="w-9/12 mx-auto grid grid-cols-1 gap-4 p-6 sm:grid-cols-2 md:grid-cols-4 ">
           {
             pokemon.map(pokemon => 
               (<PkmnCard
