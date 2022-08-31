@@ -106,7 +106,7 @@ const PkmnStats = () => {
                                 <p>Height: {pkmnStat.height} ft.</p>
                                 <p>Weight: {pkmnStat.weight} lbs.</p>
                             </div>
-                            <div className='flex flex-col p-6 align-middle justify-center h-full bg-green-500 '>
+                            <div className='flex flex-col p-6 align-middle justify-center h-full sm:w-3/5 sm:mx-auto '>
                                 <p className='text-left text-xl my-5'>{pkmnStat.description} </p>
                                 
                                 <p>Abilities: {pkmnStat.abilities}</p>
