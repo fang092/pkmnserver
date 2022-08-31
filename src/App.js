@@ -1,33 +1,28 @@
-import React, {Component} from 'react'
-import { Route, BrowserRouter as Router , Switch} from 'react-router-dom'
+import React from 'react'
+import { Route, BrowserRouter, Routes} from 'react-router-dom'
 import Navbar from './components/Navbar'
 import PkmnList from './components/PkmnList'
 import PkmnStats from './components/PkmnStats'
 
 
 
-class App extends Component{
-
-  
-  render(){
+function App (){
 
     return (  
-      <Router>
+      <BrowserRouter>
           <div className="w-full">
             <Navbar/>
           
-              <Switch>
-                <Route exact path="/" component={PkmnList} />
-                <Route exact path="/pokemon/:index"  component={PkmnStats} />
-              </Switch>
+              <Routes>
+                <Route path="/" element={<PkmnList/>} />
+                <Route path="/pokemon/:name/:index"  element={<PkmnStats/>} />
+              </Routes>
             
           </div>
-      </Router>
+      </BrowserRouter>
     )
 
 
   }
-  
-}
 export default App;
 

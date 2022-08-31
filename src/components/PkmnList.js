@@ -15,21 +15,24 @@ const PkmnList =  () => {
   const[nextPageUrl, setNextPageUrl] = useState();
   const[prevPageUrl, setPrevPageUrl] = useState();
 
-  const [pokemon, setPokemon]= useState([]);
+  const [pokemon, setPokemon]= useState([
+    {
+      name:'',
+      url:''
+    }
+  ]);
 
   
 
   useEffect(() => {
-    setIsLoading(true)
-    
-  
 
+      setIsLoading(true)
       axios.get(currentPageUrl).then((response) => {
-      setNextPageUrl(response.data.next)
-      setPrevPageUrl(response.data.previous)
-      setIsLoading(false);
-      setPokemon(response.data.results)
-       //console.log("Heres the pokemon" , pokemon)
+
+        setNextPageUrl(response.data.next)
+        setPrevPageUrl(response.data.previous)
+        setIsLoading(true);
+        setPokemon(response.data.results)
 
       }).catch(error => {
         setIsLoading(false);
@@ -37,6 +40,7 @@ const PkmnList =  () => {
       });
    
   }, [currentPageUrl]);
+
 
   function gotoNextPage(){
 
@@ -55,15 +59,13 @@ const PkmnList =  () => {
               gotoPrevPage={prevPageUrl ? gotoPrevPage : null } />
             <SearchBar pokemon={pokemon} setSearchResults={setPokemon}/>
           </div>
-          {pokemon ? ( <div className="w-9/12 mx-auto grid grid-cols-1 gap-4 p-6 sm:grid-cols-2 md:grid-cols-4 ">
+          {isLoading ? ( <div className="w-9/12 mx-auto grid grid-cols-1 gap-4 p-6 sm:grid-cols-2 md:grid-cols-4 ">
           {
             pokemon.map(pokemon => 
               (<PkmnCard
 
                 key={pokemon.name}
-                name={pokemon.name}
-                url={pokemon.url}
-              
+                pokemon={pokemon}
               
               
               />) )
