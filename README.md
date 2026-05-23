@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# PokeCodex
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web-based Pokédex built with React and powered by the public PokéAPI. PokeCodex lets users search, browse, and explore Pokémon stats and details through a clean, responsive interface with pagination support.
 
-## Available Scripts
+## Live Demo
 
-In the project directory, you can run:
+[pkmnserver.vercel.app](https://pkmnserver.vercel.app/)
 
-### `npm start`
+## About The Project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+PokeCodex is a mock Pokédex application that demonstrates real-world API consumption and dynamic UI rendering in React. Users can search for specific Pokémon, paginate through the full roster, and click through to individual detail pages showing stats and information pulled live from the PokéAPI.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Features include:**
 
-### `npm test`
+- Pokémon search by name
+- Paginated browsing through the full Pokémon roster
+- Individual Pokémon detail view with stats and information
+- Live data fetched from the PokéAPI — no local data files
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Built With
 
-### `npm run build`
+- [React](https://reactjs.org/) — component architecture and SPA structure
+- [PokéAPI](https://pokeapi.co/) — free public REST API for Pokémon data
+- [Tailwind CSS](https://tailwindcss.com/) — utility-first styling and responsive layout
+- [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML) — semantic markup
+- [Vercel](https://vercel.com/) — deployment and hosting
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Make sure you have Node.js and npm installed:
 
-### `npm run eject`
+```bash
+node -v
+npm -v
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+No API key is required — PokéAPI is completely free and open with no authentication needed.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Clone the repository:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+git clone https://github.com/yourusername/pokecodex.git
+cd pokecodex
+```
 
-## Learn More
+2. Install dependencies:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Start the development server:
 
-### Code Splitting
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. Open your browser at `http://localhost:3000`
 
-### Analyzing the Bundle Size
+## What I Learned
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Consuming a public REST API with React and managing asynchronous data fetching
+- Handling paginated API responses and building pagination UI components
+- Managing loading and error states when fetching external data
+- Building a search experience that filters against live API data
+- Structuring a multi-view React app with list and detail pages
 
-### Making a Progressive Web App
+## What I'd Do Differently
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Migrate from `create-react-app` to Vite for faster build and dev performance
+- Add loading skeletons instead of a plain loading state for a smoother experience
+- Implement caching to reduce repeat API calls on previously visited Pokémon
+- Add filtering by type, generation, or stat ranges
+- Improve accessibility with better keyboard navigation and ARIA labels
 
-### Advanced Configuration
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is open source and available under the [MIT License](LICENSE).
