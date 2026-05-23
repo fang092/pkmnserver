@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useCallback} from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import loading from './loading.gif';
@@ -10,7 +10,7 @@ const PkmnStats = () => {
     const [pkmnStat, setPkmnStat] = useState();
     const {index, name} = useParams();
  
-    const getPkmnStats = async () => { 
+    const getPkmnStats = useCallback(async () => { 
  
         
         const pkmnUrl = `https://pokeapi.co/api/v2/pokemon/${index}/`
@@ -21,9 +21,9 @@ const PkmnStats = () => {
                 const imageUrl = pkmnResponse.data.sprites.front_default;
                 //const species = pkmnResponse.data.species; 
         
-                let [ hp, attack, defense, speed, specialAttack, specialDefense] = '';
+                let hp, attack, defense, speed, specialAttack, specialDefense;
         
-                pkmnResponse.data.stats.map((stat) =>  {
+                pkmnResponse.data.stats.forEach((stat) =>  {
                     if(stat.stat.name === 'hp'){
                         hp = stat['base_stat'];
                     }
@@ -88,7 +88,7 @@ const PkmnStats = () => {
     
         getPkmnStats();
         
-    },[])
+    },[getPkmnStats])
         
     
     //Nothing from line 32-110 has any effect until *after* the first render. 
