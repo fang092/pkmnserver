@@ -83,7 +83,7 @@ const PkmnStats = () => {
         
 
 
-    }
+    }, [index, name]) // closes the useCallback
     useEffect(() => { 
     
         getPkmnStats();
