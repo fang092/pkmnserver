@@ -19,7 +19,7 @@ const PkmnStats = () => {
         try{
                 const pkmnResponse = await axios.get(pkmnUrl);
                 const imageUrl = pkmnResponse.data.sprites.front_default;
-                const species = pkmnResponse.data.species; 
+                //const species = pkmnResponse.data.species; 
         
                 let [ hp, attack, defense, speed, specialAttack, specialDefense] = '';
         
